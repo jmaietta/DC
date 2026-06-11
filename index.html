@@ -1,0 +1,1146 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Washington, D.C. — Capital City History</title>
+  <meta name="description" content="A family-friendly history tour of Washington, D.C., its architecture, monuments, founding documents, nearby towns, and airport facts.">
+  <meta name="theme-color" content="#0c1224">
+  <style>
+    /* ============================================================
+       Design tokens
+       ============================================================ */
+    :root {
+      --ink: #10141f;
+      --ink-soft: #3f4754;
+      --muted: #65707f;
+      --paper: #f6f7fa;
+      --panel: #ffffff;
+      --line: #e3e8f0;
+      --line-strong: #d2d9e4;
+      --civic: #1f56ad;
+      --civic-deep: #0c1224;
+      --cherry: #d04a72;
+      --copper: #a8702e;
+      --wash: #eef2f8;
+
+      --radius-sm: 10px;
+      --radius: 16px;
+      --radius-lg: 22px;
+
+      --shadow-sm: 0 1px 2px rgba(16, 20, 31, 0.05), 0 2px 8px rgba(16, 20, 31, 0.04);
+      --shadow-md: 0 2px 4px rgba(16, 20, 31, 0.04), 0 12px 32px rgba(16, 20, 31, 0.08);
+
+      --font-sans: "Inter var", Inter, "SF Pro Display", "Segoe UI Variable Display", "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+
+      --space-1: clamp(8px, 1.5vw, 12px);
+      --space-2: clamp(14px, 2.5vw, 20px);
+      --space-3: clamp(20px, 3.5vw, 32px);
+      --space-4: clamp(40px, 7vw, 80px);
+      --space-section: clamp(64px, 11vw, 128px);
+
+      --nav-h: 58px;
+    }
+
+    /* ============================================================
+       Base
+       ============================================================ */
+    *, *::before, *::after { box-sizing: border-box; }
+
+    html {
+      scroll-behavior: smooth;
+      -webkit-text-size-adjust: 100%;
+    }
+
+    body {
+      margin: 0;
+      font-family: var(--font-sans);
+      font-size: clamp(0.98rem, 0.93rem + 0.25vw, 1.0625rem);
+      color: var(--ink);
+      background: var(--paper);
+      line-height: 1.65;
+      text-rendering: optimizeLegibility;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    ::selection { background: rgba(31, 86, 173, 0.18); }
+
+    a {
+      color: var(--civic);
+      text-decoration-thickness: 1px;
+      text-underline-offset: 3px;
+    }
+
+    a:focus-visible,
+    button:focus-visible {
+      outline: 2px solid var(--civic);
+      outline-offset: 3px;
+      border-radius: 4px;
+    }
+
+    img {
+      display: block;
+      max-width: 100%;
+      height: auto;
+    }
+
+    .wrap {
+      width: min(1120px, 100% - clamp(32px, 8vw, 48px));
+      margin-inline: auto;
+    }
+
+    /* ============================================================
+       Typography
+       ============================================================ */
+    h1, h2, h3 {
+      line-height: 1.06;
+      letter-spacing: -0.02em;
+      text-wrap: balance;
+      margin: 0;
+    }
+
+    h1 {
+      font-size: clamp(2.9rem, 2rem + 7.5vw, 6.75rem);
+      font-weight: 800;
+      max-width: 14ch;
+    }
+
+    h2 {
+      font-size: clamp(1.85rem, 1.4rem + 2.6vw, 3.25rem);
+      font-weight: 760;
+      color: var(--ink);
+    }
+
+    h3 {
+      font-size: 1.1rem;
+      line-height: 1.3;
+      font-weight: 700;
+      letter-spacing: -0.01em;
+      color: var(--civic-deep);
+    }
+
+    .eyebrow {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin: 0 0 14px;
+      font-size: 0.78rem;
+      font-weight: 700;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--cherry);
+    }
+
+    .eyebrow::before {
+      content: "";
+      width: 26px;
+      height: 2px;
+      border-radius: 99px;
+      background: currentColor;
+      opacity: 0.7;
+    }
+
+    .lead {
+      margin: 0;
+      color: var(--ink-soft);
+      font-size: clamp(1rem, 0.95rem + 0.4vw, 1.15rem);
+      line-height: 1.7;
+      max-width: 62ch;
+      text-wrap: pretty;
+    }
+
+    /* ============================================================
+       Hero
+       ============================================================ */
+    .hero {
+      position: relative;
+      isolation: isolate;
+      display: flex;
+      align-items: flex-end;
+      min-height: min(92svh, 880px);
+      color: #fff;
+      background-color: var(--civic-deep);
+      background-image:
+        linear-gradient(180deg, rgba(12, 18, 36, 0.25) 0%, rgba(12, 18, 36, 0.35) 45%, rgba(12, 18, 36, 0.92) 100%),
+        url("https://commons.wikimedia.org/wiki/Special:FilePath/National%20mall%20night.jpg");
+      background-size: cover;
+      background-position: center 38%;
+    }
+
+    .hero-inner {
+      padding-block: clamp(56px, 10vw, 96px) clamp(64px, 12vw, 120px);
+    }
+
+    .hero .eyebrow {
+      color: #f3b8cb;
+      margin-bottom: clamp(14px, 3vw, 22px);
+    }
+
+    .hero p {
+      max-width: 56ch;
+      margin: clamp(18px, 3vw, 26px) 0 0;
+      font-size: clamp(1.02rem, 0.95rem + 0.7vw, 1.3rem);
+      line-height: 1.6;
+      color: rgba(255, 255, 255, 0.88);
+      text-wrap: pretty;
+    }
+
+    .hero-meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: clamp(24px, 4vw, 36px);
+    }
+
+    .hero-meta span {
+      display: inline-flex;
+      align-items: center;
+      padding: 7px 14px;
+      border-radius: 99px;
+      border: 1px solid rgba(255, 255, 255, 0.28);
+      background: rgba(255, 255, 255, 0.08);
+      backdrop-filter: blur(8px);
+      -webkit-backdrop-filter: blur(8px);
+      font-size: 0.82rem;
+      font-weight: 600;
+      letter-spacing: 0.02em;
+      color: rgba(255, 255, 255, 0.92);
+    }
+
+    /* ============================================================
+       Sticky nav
+       ============================================================ */
+    nav {
+      position: sticky;
+      top: 0;
+      z-index: 20;
+      background: rgba(247, 248, 251, 0.78);
+      border-bottom: 1px solid var(--line);
+      backdrop-filter: blur(18px) saturate(1.4);
+      -webkit-backdrop-filter: blur(18px) saturate(1.4);
+    }
+
+    .nav-scroller {
+      position: relative;
+      /* fade hints at horizontally clipped items on mobile */
+      mask-image: linear-gradient(90deg, transparent, #000 20px, #000 calc(100% - 20px), transparent);
+      -webkit-mask-image: linear-gradient(90deg, transparent, #000 20px, #000 calc(100% - 20px), transparent);
+    }
+
+    .nav-inner {
+      display: flex;
+      gap: 4px;
+      height: var(--nav-h);
+      align-items: center;
+      overflow-x: auto;
+      overscroll-behavior-x: contain;
+      scrollbar-width: none;
+      scroll-snap-type: x proximity;
+      padding-inline: 4px;
+    }
+
+    .nav-inner::-webkit-scrollbar { display: none; }
+
+    .nav-inner a {
+      flex: 0 0 auto;
+      scroll-snap-align: start;
+      display: inline-flex;
+      align-items: center;
+      min-height: 40px;
+      padding: 0 14px;
+      border-radius: 99px;
+      color: var(--ink-soft);
+      text-decoration: none;
+      font-size: 0.9rem;
+      font-weight: 620;
+      white-space: nowrap;
+      transition: background 160ms ease, color 160ms ease;
+    }
+
+    .nav-inner a:hover { background: var(--wash); color: var(--civic-deep); }
+
+    .nav-inner a.active {
+      background: var(--civic-deep);
+      color: #fff;
+    }
+
+    /* ============================================================
+       Layout
+       ============================================================ */
+    main { padding-block: clamp(40px, 7vw, 80px) clamp(48px, 8vw, 88px); }
+
+    section { margin-block: var(--space-section); }
+    section:first-child { margin-top: 0; }
+
+    /* anchor offset below sticky nav */
+    section[id] { scroll-margin-top: calc(var(--nav-h) + 18px); }
+
+    .section-head {
+      max-width: 760px;
+      margin-bottom: clamp(26px, 5vw, 44px);
+    }
+
+    .section-head h2 { margin-bottom: clamp(12px, 2vw, 18px); }
+
+    /* ============================================================
+       Grid + cards
+       ============================================================ */
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(12, 1fr);
+      gap: var(--space-2);
+    }
+
+    .span-4 { grid-column: span 4; }
+    .span-5 { grid-column: span 5; }
+    .span-6 { grid-column: span 6; }
+    .span-7 { grid-column: span 7; }
+    .span-12 { grid-column: span 12; }
+
+    .card,
+    .stat,
+    .source-box {
+      background: var(--panel);
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow-sm);
+    }
+
+    .card { padding: clamp(20px, 3vw, 28px); }
+
+    .card h3 { margin-bottom: 10px; }
+
+    .card p { margin: 0; color: var(--ink-soft); text-wrap: pretty; }
+    .card p + p { margin-top: 10px; }
+
+    /* ============================================================
+       Stats
+       ============================================================ */
+    .stats {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: var(--space-2);
+    }
+
+    .stat {
+      padding: clamp(18px, 2.5vw, 24px);
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+
+    .stat strong {
+      font-size: clamp(1.55rem, 1.2rem + 1.6vw, 2.3rem);
+      line-height: 1;
+      letter-spacing: -0.02em;
+      font-weight: 780;
+      color: var(--civic);
+      font-variant-numeric: tabular-nums;
+    }
+
+    .stat span {
+      color: var(--muted);
+      font-size: 0.9rem;
+      line-height: 1.55;
+      text-wrap: pretty;
+    }
+
+    /* ============================================================
+       Timeline
+       ============================================================ */
+    .timeline {
+      border-left: 2px solid var(--line-strong);
+      padding-left: 22px;
+      margin-top: 4px;
+    }
+
+    .timeline article { position: relative; padding-bottom: 20px; }
+    .timeline article:last-child { padding-bottom: 0; }
+
+    .timeline article::before {
+      content: "";
+      position: absolute;
+      left: -29px;
+      top: 7px;
+      width: 12px;
+      height: 12px;
+      border-radius: 50%;
+      background: var(--cherry);
+      border: 3px solid var(--panel);
+      box-shadow: 0 0 0 1px var(--line-strong);
+    }
+
+    .timeline time {
+      display: block;
+      font-weight: 740;
+      font-size: 0.86rem;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: var(--copper);
+      margin-bottom: 3px;
+      font-variant-numeric: tabular-nums;
+    }
+
+    .timeline p { margin: 0; color: var(--ink-soft); }
+
+    /* ============================================================
+       Tables
+       ============================================================ */
+    .table-card {
+      background: var(--panel);
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow-sm);
+      overflow: hidden;
+    }
+
+    table { width: 100%; border-collapse: collapse; }
+
+    th, td {
+      padding: 14px 18px;
+      text-align: left;
+      vertical-align: top;
+      border-bottom: 1px solid var(--line);
+      font-size: 0.95rem;
+    }
+
+    th {
+      background: var(--wash);
+      color: var(--muted);
+      font-size: 0.74rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      font-weight: 740;
+      white-space: nowrap;
+    }
+
+    tr:last-child td { border-bottom: 0; }
+
+    td:first-child { font-weight: 640; }
+
+    /* ============================================================
+       Image + document cards
+       ============================================================ */
+    .image-card { overflow: hidden; padding: 0; }
+
+    .image-card img {
+      width: 100%;
+      aspect-ratio: 4 / 3;
+      height: auto;
+      object-fit: cover;
+      background: #e7eaf0;
+    }
+
+    .image-card .caption {
+      padding: 16px 18px 18px;
+      color: var(--muted);
+      font-size: 0.9rem;
+      line-height: 1.55;
+      text-wrap: pretty;
+    }
+
+    .document-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: var(--space-2);
+    }
+
+    .document-card {
+      background: var(--panel);
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow-sm);
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .document-card img {
+      width: 100%;
+      aspect-ratio: 4 / 5;
+      object-fit: contain;
+      padding: 16px;
+      background: linear-gradient(180deg, #edf0f5, #e6eaf1);
+    }
+
+    .document-card > div {
+      padding: 18px 20px 22px;
+      display: flex;
+      flex-direction: column;
+      flex: 1;
+    }
+
+    .document-card h3 { margin-bottom: 8px; }
+    .document-card p { margin: 0 0 10px; color: var(--ink-soft); text-wrap: pretty; }
+    .document-card p:last-child { margin: auto 0 0; padding-top: 6px; }
+
+    /* ============================================================
+       Tour cards + buttons
+       ============================================================ */
+    .tour-card {
+      display: flex;
+      flex-direction: column;
+      gap: 0;
+    }
+
+    .tour-card p { margin-bottom: 18px; }
+
+    .button-link,
+    .tour-card > a {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      width: fit-content;
+      min-height: 46px;
+      margin-top: auto;
+      padding: 10px 20px;
+      border-radius: 99px;
+      background: var(--civic-deep);
+      color: #fff;
+      text-decoration: none;
+      font-weight: 660;
+      font-size: 0.92rem;
+      transition: background 160ms ease, transform 160ms ease, box-shadow 160ms ease;
+    }
+
+    .button-link::after,
+    .tour-card > a::after {
+      content: "→";
+      font-weight: 500;
+      transition: transform 160ms ease;
+    }
+
+    .button-link:hover,
+    .tour-card > a:hover {
+      background: var(--civic);
+      transform: translateY(-1px);
+      box-shadow: 0 8px 20px rgba(31, 86, 173, 0.28);
+    }
+
+    .button-link:hover::after,
+    .tour-card > a:hover::after { transform: translateX(3px); }
+
+    .sub-link {
+      margin: 14px 0 0 !important;
+      font-size: 0.9rem;
+    }
+
+    /* ============================================================
+       Note
+       ============================================================ */
+    .note {
+      padding: 18px 22px;
+      border: 1px solid #ecdcc3;
+      border-left: 4px solid var(--copper);
+      background: #fdf7ee;
+      color: #5a4a33;
+      border-radius: var(--radius-sm);
+      text-wrap: pretty;
+    }
+
+    /* ============================================================
+       Sources + footer
+       ============================================================ */
+    .source-box { padding: clamp(20px, 3vw, 28px); }
+    .source-box h3 { margin-bottom: 14px; }
+
+    .source-list {
+      columns: 2;
+      column-gap: 36px;
+      margin: 0;
+      padding-left: 20px;
+    }
+
+    .source-list li {
+      break-inside: avoid;
+      margin: 0 0 9px;
+      font-size: 0.93rem;
+      line-height: 1.5;
+    }
+
+    footer {
+      border-top: 1px solid var(--line);
+      padding: clamp(28px, 5vw, 44px) 0 calc(clamp(28px, 5vw, 44px) + env(safe-area-inset-bottom));
+      color: var(--muted);
+      font-size: 0.88rem;
+    }
+
+    footer .wrap {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px 24px;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    footer a { color: var(--ink-soft); }
+
+    /* ============================================================
+       Scroll-reveal (no-ops when JS is off or motion is reduced)
+       ============================================================ */
+    @media (prefers-reduced-motion: no-preference) {
+      .reveal {
+        opacity: 0;
+        transform: translateY(18px);
+        transition: opacity 600ms cubic-bezier(0.22, 1, 0.36, 1), transform 600ms cubic-bezier(0.22, 1, 0.36, 1);
+      }
+      .reveal.in { opacity: 1; transform: none; }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+      *, *::before, *::after { transition: none !important; animation: none !important; }
+    }
+
+    /* ============================================================
+       Tablet
+       ============================================================ */
+    @media (max-width: 900px) {
+      .stats { grid-template-columns: repeat(2, 1fr); }
+      .document-grid { grid-template-columns: 1fr; }
+      .span-4, .span-5, .span-6, .span-7 { grid-column: span 12; }
+      .document-card { flex-direction: row; }
+      .document-card img { width: 38%; aspect-ratio: auto; align-self: stretch; }
+    }
+
+    /* ============================================================
+       Mobile
+       ============================================================ */
+    @media (max-width: 640px) {
+      .stats { grid-template-columns: 1fr 1fr; }
+      .stat { padding: 16px; }
+      .source-list { columns: 1; }
+      .document-card { flex-direction: column; }
+      .document-card img { width: 100%; aspect-ratio: 4 / 3; object-fit: cover; object-position: top; padding: 0; }
+      .hero { min-height: min(78svh, 640px); }
+      .tour-card > a, .button-link { width: 100%; }
+
+      /* Tables collapse into stacked cards */
+      .table-card { background: transparent; border: 0; box-shadow: none; border-radius: 0; overflow: visible; }
+      table, tbody, tr, td { display: block; width: 100%; }
+      thead { display: none; }
+
+      tr {
+        margin-bottom: 12px;
+        padding: 16px;
+        background: var(--panel);
+        border: 1px solid var(--line);
+        border-radius: var(--radius);
+        box-shadow: var(--shadow-sm);
+      }
+      tr:last-child { margin-bottom: 0; }
+
+      td { border: 0; padding: 7px 0; font-size: 0.95rem; }
+      td:first-child { padding-top: 0; font-size: 1.05rem; font-weight: 700; color: var(--civic-deep); }
+      td:last-child { padding-bottom: 0; }
+
+      td[data-label]::before {
+        content: attr(data-label);
+        display: block;
+        margin-bottom: 2px;
+        color: var(--muted);
+        font-size: 0.7rem;
+        font-weight: 740;
+        letter-spacing: 0.1em;
+        text-transform: uppercase;
+      }
+    }
+
+    @media (max-width: 380px) {
+      .stats { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+  <header class="hero">
+    <div class="wrap hero-inner">
+      <p class="eyebrow">Capital City History</p>
+      <h1>Washington, D.C.</h1>
+      <p>From a 10-mile-square federal district to a compact capital of monuments, archives, neighborhoods, embassies, airports, and civic architecture.</p>
+      <div class="hero-meta" aria-hidden="true">
+        <span>Est. 1790</span>
+        <span>68.34 sq mi</span>
+        <span>693,645 residents</span>
+      </div>
+    </div>
+  </header>
+
+  <nav aria-label="Page sections">
+    <div class="wrap nav-scroller">
+      <div class="nav-inner">
+        <a href="#origin">Origins</a>
+        <a href="#architecture">Architecture</a>
+        <a href="#documents">Founding Documents</a>
+        <a href="#tours">360° Tours</a>
+        <a href="#monuments">Monuments</a>
+        <a href="#cherry">Cherry Blossoms</a>
+        <a href="#airports">Airports</a>
+        <a href="#towns">Nearby Towns</a>
+        <a href="#sources">Sources</a>
+      </div>
+    </div>
+  </nav>
+
+  <main>
+    <section id="origin" class="wrap">
+      <div class="section-head reveal">
+        <p class="eyebrow">01 — Origins</p>
+        <h2>How D.C. Became the Capital</h2>
+        <p class="lead">The Constitution allowed Congress to create a federal district under national control. The Residence Act of 1790 selected the Potomac region, and George Washington chose the site that became the City of Washington.</p>
+      </div>
+
+      <div class="stats reveal">
+        <div class="stat">
+          <strong>100 sq mi</strong>
+          <span>Original maximum district: a 10-mile by 10-mile diamond, or 2,787,840,000 square feet.</span>
+        </div>
+        <div class="stat">
+          <strong>68.34 sq mi</strong>
+          <span>Modern total area after Virginia retrocession, about 1,905,209,856 square feet.</span>
+        </div>
+        <div class="stat">
+          <strong>61.13 sq mi</strong>
+          <span>Modern Census land area, about 1,704,206,592 square feet.</span>
+        </div>
+        <div class="stat">
+          <strong>693,645</strong>
+          <span>District of Columbia population estimate for July 1, 2025 from Census QuickFacts.</span>
+        </div>
+      </div>
+
+      <div class="grid" style="margin-top: var(--space-2);">
+        <div class="card span-7 reveal">
+          <h3>Timeline</h3>
+          <div class="timeline">
+            <article>
+              <time>1788–1789</time>
+              <p>Maryland and Virginia authorized ceding land for a future federal district.</p>
+            </article>
+            <article>
+              <time>July 16, 1790</time>
+              <p>The Residence Act gave President George Washington authority to locate the permanent seat of government along the Potomac.</p>
+            </article>
+            <article>
+              <time>1791</time>
+              <p>Pierre Charles L'Enfant prepared the broad plan of diagonal avenues, ceremonial spaces, and major sites for the Capitol and President's House.</p>
+            </article>
+            <article>
+              <time>1800–1801</time>
+              <p>The federal government moved from Philadelphia to Washington. Congress then organized the District of Columbia under congressional authority.</p>
+            </article>
+            <article>
+              <time>1846–1847</time>
+              <p>The Virginia portion, including what became Arlington County and Alexandria, was returned to Virginia, reducing the district to roughly its modern footprint.</p>
+            </article>
+            <article>
+              <time>1973</time>
+              <p>The Home Rule Act created the modern elected mayor and D.C. Council structure, while Congress retained ultimate authority over the district.</p>
+            </article>
+          </div>
+        </div>
+        <div class="card span-5 reveal">
+          <h3>The Architectural Idea</h3>
+          <p>D.C.'s public core uses the language of ancient Greece and Rome — domes, pediments, columns, axial views, and white stone — to connect the new republic with older democratic and civic symbols. L'Enfant's plan gave the city a ceremonial frame; the McMillan Plan of 1901 later reinforced the National Mall as a grand civic landscape.</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="architecture" class="wrap">
+      <div class="section-head reveal">
+        <p class="eyebrow">02 — Architecture</p>
+        <h2>Government Buildings and Styles</h2>
+        <p class="lead">The capital's best-known public buildings were built over many generations. Their styles show how the federal government used classical forms, Beaux-Arts planning, and monumental scale to signal permanence.</p>
+      </div>
+
+      <div class="table-card reveal">
+        <table>
+          <thead>
+            <tr>
+              <th>Building</th>
+              <th>Built / opened</th>
+              <th>Architectural style</th>
+              <th>Why it matters</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><a href="https://www.aoc.gov/explore-capitol-campus/buildings-grounds/capitol-building" target="_blank" rel="noopener">U.S. Capitol</a></td>
+              <td data-label="Built / opened">Begun in 1793; Congress first met there on Nov. 17, 1800; cast-iron dome built 1856–1866.</td>
+              <td data-label="Style">Neoclassical</td>
+              <td data-label="Why it matters">About 1.5 million square feet, over 600 rooms, and the center of the legislative branch.</td>
+            </tr>
+            <tr>
+              <td><a href="https://www.whitehousehistory.org/questions/who-built-the-white-house" target="_blank" rel="noopener">White House</a></td>
+              <td data-label="Built / opened">Constructed 1792–1800; burned in 1814 and rebuilt; West Wing added in the early 1900s.</td>
+              <td data-label="Style">Neoclassical / Palladian influences</td>
+              <td data-label="Why it matters">Designed by James Hoban and first occupied by John Adams in 1800.</td>
+            </tr>
+            <tr>
+              <td><a href="https://home.treasury.gov/about/history/the-treasury-building" target="_blank" rel="noopener">U.S. Treasury Building</a></td>
+              <td data-label="Built / opened">Major wings completed between 1836 and 1869.</td>
+              <td data-label="Style">Greek Revival / Neoclassical</td>
+              <td data-label="Why it matters">A National Historic Landmark beside the White House; its west wing was completed in 1864.</td>
+            </tr>
+            <tr>
+              <td><a href="https://www.supremecourt.gov/about/courtbuilding.aspx" target="_blank" rel="noopener">Supreme Court Building</a></td>
+              <td data-label="Built / opened">Completed in 1935.</td>
+              <td data-label="Style">Neoclassical</td>
+              <td data-label="Why it matters">Cass Gilbert's marble courthouse gave the judicial branch its own monumental home.</td>
+            </tr>
+            <tr>
+              <td><a href="https://www.loc.gov/visit/" target="_blank" rel="noopener">Library of Congress, Thomas Jefferson Building</a></td>
+              <td data-label="Built / opened">Opened in 1897.</td>
+              <td data-label="Style">Italian Renaissance / Beaux-Arts</td>
+              <td data-label="Why it matters">One of the most ornate public interiors in Washington and a symbol of national learning.</td>
+            </tr>
+            <tr>
+              <td><a href="https://www.archives.gov/museum" target="_blank" rel="noopener">National Archives Building</a></td>
+              <td data-label="Built / opened">Completed in 1935.</td>
+              <td data-label="Style">Neoclassical</td>
+              <td data-label="Why it matters">Home of the Declaration, Constitution, and Bill of Rights in the Rotunda for the Charters of Freedom.</td>
+            </tr>
+            <tr>
+              <td><a href="https://www.si.edu/museums/smithsonian-institution-building" target="_blank" rel="noopener">Smithsonian Castle</a></td>
+              <td data-label="Built / opened">Completed in 1855.</td>
+              <td data-label="Style">Norman Revival / Romanesque Revival</td>
+              <td data-label="Why it matters">James Renwick Jr.'s red Seneca sandstone building became the Smithsonian's first permanent home.</td>
+            </tr>
+            <tr>
+              <td><a href="https://www.unionstationdc.com/history" target="_blank" rel="noopener">Union Station</a></td>
+              <td data-label="Built / opened">Opened in 1907.</td>
+              <td data-label="Style">Beaux-Arts</td>
+              <td data-label="Why it matters">Daniel Burnham's station linked the capital to the national rail network and reinforced City Beautiful planning.</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="grid" style="margin-top: var(--space-2);">
+        <div class="card image-card span-4 reveal">
+          <img src="https://commons.wikimedia.org/wiki/Special:FilePath/United%20States%20Capitol%20-%20west%20front%20tilt%20correct.jpg" alt="West front of the United States Capitol" loading="lazy" decoding="async">
+          <div class="caption">The Capitol's west front faces the National Mall and represents D.C.'s strongest classical image of legislative government.</div>
+        </div>
+        <div class="card image-card span-4 reveal">
+          <img src="https://commons.wikimedia.org/wiki/Special:FilePath/Treasury%20Department%20rear%20view.JPG" alt="U.S. Treasury Building in Washington, D.C." loading="lazy" decoding="async">
+          <div class="caption">The Treasury Building uses a temple-like portico, long wings, and stone symmetry to project financial authority.</div>
+        </div>
+        <div class="card image-card span-4 reveal">
+          <img src="https://commons.wikimedia.org/wiki/Special:FilePath/US-Treasury-Large.png" alt="Historic engraving of the U.S. Treasury Building" loading="lazy" decoding="async">
+          <div class="caption">Historic engravings show how familiar the Treasury's colonnade became in the federal landscape.</div>
+        </div>
+      </div>
+    </section>
+
+    <section id="documents" class="wrap">
+      <div class="section-head reveal">
+        <p class="eyebrow">03 — Founding Documents</p>
+        <h2>The Charters of Freedom</h2>
+        <p class="lead">The National Archives displays the Charters of Freedom in Washington: the Declaration of Independence, the Constitution, and the Bill of Rights. These are actual document images from National Archives downloads.</p>
+      </div>
+
+      <div class="document-grid">
+        <article class="document-card reveal">
+          <img src="https://www.archives.gov/files/founding-docs/downloads/Declaration_Pg1of1_AC.jpg" alt="The Declaration of Independence parchment" loading="lazy" decoding="async">
+          <div>
+            <h3>Declaration of Independence</h3>
+            <p>Approved July 4, 1776. The National Archives notes that public display and age have faded the parchment.</p>
+            <p><a href="https://www.archives.gov/founding-docs/declaration" target="_blank" rel="noopener">Open the National Archives page</a></p>
+          </div>
+        </article>
+
+        <article class="document-card reveal">
+          <img src="https://www.archives.gov/files/founding-docs/downloads/Constitution_Pg1of4_AC.jpg" alt="The first page of the U.S. Constitution parchment" loading="lazy" decoding="async">
+          <div>
+            <h3>Constitution</h3>
+            <p>Signed September 17, 1787. It created the federal framework that made a national district possible.</p>
+            <p><a href="https://www.archives.gov/founding-docs/constitution" target="_blank" rel="noopener">Open the Constitution page</a></p>
+          </div>
+        </article>
+
+        <article class="document-card reveal">
+          <img src="https://www.archives.gov/files/founding-docs/bill-of-rights-xl.jpg" alt="The Bill of Rights parchment" loading="lazy" decoding="async">
+          <div>
+            <h3>Bill of Rights</h3>
+            <p>Ratified December 15, 1791. The first ten amendments limit federal power and protect civil liberties.</p>
+            <p><a href="https://www.archives.gov/founding-docs/bill-of-rights" target="_blank" rel="noopener">Open the Bill of Rights page</a></p>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section id="tours" class="wrap">
+      <div class="section-head reveal">
+        <p class="eyebrow">04 — Virtual Visits</p>
+        <h2>360° Street View Stops</h2>
+        <p class="lead">These links open Google Maps in panoramic Street View where available. Some federal interiors are restricted, so the Capitol card also links to the official virtual Capitol tour.</p>
+      </div>
+
+      <div class="grid">
+        <article class="card tour-card span-4 reveal">
+          <h3>White House</h3>
+          <p>Start from Pennsylvania Avenue and Lafayette Square for a 360-degree exterior view of the President's House.</p>
+          <a href="https://www.google.com/maps/@?api=1&amp;map_action=pano&amp;viewpoint=38.897676,-77.036530&amp;heading=180&amp;pitch=0&amp;fov=80" target="_blank" rel="noopener">Open 360° Street View</a>
+        </article>
+        <article class="card tour-card span-4 reveal">
+          <h3>U.S. Treasury</h3>
+          <p>View the Treasury Building's long classical facade near 15th Street NW, directly east of the White House complex.</p>
+          <a href="https://www.google.com/maps/@?api=1&amp;map_action=pano&amp;viewpoint=38.897236,-77.034603&amp;heading=270&amp;pitch=0&amp;fov=80" target="_blank" rel="noopener">Open 360° Street View</a>
+        </article>
+        <article class="card tour-card span-4 reveal">
+          <h3>U.S. Capitol</h3>
+          <p>Begin at the west front looking toward the dome, then use the official Capitol virtual tour for interior history.</p>
+          <a href="https://www.google.com/maps/@?api=1&amp;map_action=pano&amp;viewpoint=38.889806,-77.009056&amp;heading=90&amp;pitch=0&amp;fov=80" target="_blank" rel="noopener">Open 360° Street View</a>
+          <p class="sub-link"><a href="https://www.capitol.gov/" target="_blank" rel="noopener">Open Architect of the Capitol virtual tour</a></p>
+        </article>
+      </div>
+    </section>
+
+    <section id="monuments" class="wrap">
+      <div class="section-head reveal">
+        <p class="eyebrow">05 — Civic Memory</p>
+        <h2>Monuments and Memorials</h2>
+        <p class="lead">The National Mall is a sequence of civic memory: Washington at the center line, Lincoln anchoring the west end, and the Vietnam Veterans Memorial set into the landscape nearby.</p>
+      </div>
+
+      <div class="grid">
+        <article class="card span-4 reveal">
+          <h3>Washington Monument</h3>
+          <p>Designed by Robert Mills, begun on July 4, 1848, paused for decades, completed in 1884, and opened in 1888. It is commonly given as 555 feet, 5 1/8 inches tall, and the color change partway up marks the long construction interruption.</p>
+        </article>
+        <article class="card span-4 reveal">
+          <h3>Lincoln Memorial</h3>
+          <p>Designed by Henry Bacon as a Greek Doric temple. Construction began in 1914 and the memorial was dedicated on May 30, 1922. Its 36 exterior columns represent the states in the Union when Lincoln died.</p>
+        </article>
+        <article class="card span-4 reveal">
+          <h3>Vietnam Veterans Memorial</h3>
+          <p>Dedicated on November 13, 1982, and designed by Maya Lin. The black granite wall lists service members who died or remain missing, arranged mainly by date of casualty rather than alphabetically.</p>
+        </article>
+      </div>
+
+      <div class="note reveal" style="margin-top: var(--space-2);">
+        Martin Luther King Jr. delivered the "I Have a Dream" speech from the Lincoln Memorial steps on August 28, 1963, giving the memorial a second life as a national civil-rights landmark.
+      </div>
+    </section>
+
+    <section id="cherry" class="wrap">
+      <div class="section-head reveal">
+        <p class="eyebrow">06 — Spring Tradition</p>
+        <h2>Cherry Blossoms</h2>
+        <p class="lead">Washington's spring landscape is tied to a diplomatic gift. Tokyo Mayor Yukio Ozaki gave the city thousands of Japanese flowering cherry trees as a friendship gesture between Japan and the United States.</p>
+      </div>
+
+      <div class="grid">
+        <div class="card span-6 reveal">
+          <h3>The 1912 Gift</h3>
+          <p>The famous planting began after an earlier 1910 shipment had to be destroyed because of pests. A healthier 1912 shipment of 3,020 trees arrived, and First Lady Helen Taft and Viscountess Chinda planted the first two along the Tidal Basin on March 27, 1912.</p>
+        </div>
+        <div class="card span-6 reveal">
+          <h3>Why It Became a Festival</h3>
+          <p>The trees turned a diplomatic act into an annual public ritual. The National Cherry Blossom Festival now frames the Tidal Basin bloom as a celebration of renewal, tourism, and U.S.–Japan friendship.</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="airports" class="wrap">
+      <div class="section-head reveal">
+        <p class="eyebrow">07 — Getting There</p>
+        <h2>Airport Flow</h2>
+        <p class="lead">Reagan National is the closest airport to downtown D.C. Dulles is farther west and handles much of the region's international traffic. Daily figures below are annual passengers divided by 365.</p>
+      </div>
+
+      <div class="stats reveal">
+        <div class="stat">
+          <strong>~72,000/day</strong>
+          <span>Reagan National, using 26.29 million passengers in 2024.</span>
+        </div>
+        <div class="stat">
+          <strong>~74,000/day</strong>
+          <span>Dulles, using about 27 million passengers in 2024.</span>
+        </div>
+        <div class="stat">
+          <strong>1941</strong>
+          <span>Washington National Airport opened; it was renamed for Ronald Reagan in 1998.</span>
+        </div>
+        <div class="stat">
+          <strong>1962</strong>
+          <span>Dulles opened with Eero Saarinen's modern terminal and mobile-lounge system.</span>
+        </div>
+      </div>
+
+      <p class="note reveal" style="margin-top: var(--space-2);">For current month-by-month numbers, use the Metropolitan Washington Airports Authority traffic pages linked in the sources.</p>
+    </section>
+
+    <section id="towns" class="wrap">
+      <div class="section-head reveal">
+        <p class="eyebrow">08 — Day Trips</p>
+        <h2>Nearby Towns and Maps</h2>
+        <p class="lead">Here are common surrounding communities for family trip planning. Population figures are 2020 Census counts for the town, city, county, or Census Designated Place named.</p>
+      </div>
+
+      <div class="table-card reveal">
+        <table>
+          <thead>
+            <tr>
+              <th>Community</th>
+              <th>State / type</th>
+              <th>2020 Census population</th>
+              <th>Map and data</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Arlington</td>
+              <td data-label="State / type">Virginia county</td>
+              <td data-label="2020 population">238,643</td>
+              <td data-label="Map and data"><a href="https://www.google.com/maps/search/?api=1&amp;query=Arlington%20VA" target="_blank" rel="noopener">Google Map</a> · <a href="https://www.census.gov/quickfacts/arlingtoncountyvirginia" target="_blank" rel="noopener">Census QuickFacts</a></td>
+            </tr>
+            <tr>
+              <td>Alexandria</td>
+              <td data-label="State / type">Virginia independent city</td>
+              <td data-label="2020 population">159,467</td>
+              <td data-label="Map and data"><a href="https://www.google.com/maps/search/?api=1&amp;query=Alexandria%20VA" target="_blank" rel="noopener">Google Map</a> · <a href="https://www.census.gov/quickfacts/alexandriacityvirginia" target="_blank" rel="noopener">Census QuickFacts</a></td>
+            </tr>
+            <tr>
+              <td>Bethesda</td>
+              <td data-label="State / type">Maryland CDP</td>
+              <td data-label="2020 population">68,056</td>
+              <td data-label="Map and data"><a href="https://www.google.com/maps/search/?api=1&amp;query=Bethesda%20MD" target="_blank" rel="noopener">Google Map</a> · <a href="https://www.census.gov/quickfacts/bethesdacdpmaryland" target="_blank" rel="noopener">Census QuickFacts</a></td>
+            </tr>
+            <tr>
+              <td>Silver Spring</td>
+              <td data-label="State / type">Maryland CDP</td>
+              <td data-label="2020 population">81,015</td>
+              <td data-label="Map and data"><a href="https://www.google.com/maps/search/?api=1&amp;query=Silver%20Spring%20MD" target="_blank" rel="noopener">Google Map</a> · <a href="https://www.census.gov/quickfacts/silverspringcdpmaryland" target="_blank" rel="noopener">Census QuickFacts</a></td>
+            </tr>
+            <tr>
+              <td>College Park</td>
+              <td data-label="State / type">Maryland city</td>
+              <td data-label="2020 population">34,740</td>
+              <td data-label="Map and data"><a href="https://www.google.com/maps/search/?api=1&amp;query=College%20Park%20MD" target="_blank" rel="noopener">Google Map</a> · <a href="https://www.census.gov/quickfacts/collegeparkcitymaryland" target="_blank" rel="noopener">Census QuickFacts</a></td>
+            </tr>
+            <tr>
+              <td>Takoma Park</td>
+              <td data-label="State / type">Maryland city</td>
+              <td data-label="2020 population">17,629</td>
+              <td data-label="Map and data"><a href="https://www.google.com/maps/search/?api=1&amp;query=Takoma%20Park%20MD" target="_blank" rel="noopener">Google Map</a> · <a href="https://www.census.gov/quickfacts/takomaparkcitymaryland" target="_blank" rel="noopener">Census QuickFacts</a></td>
+            </tr>
+            <tr>
+              <td>Hyattsville</td>
+              <td data-label="State / type">Maryland city</td>
+              <td data-label="2020 population">21,187</td>
+              <td data-label="Map and data"><a href="https://www.google.com/maps/search/?api=1&amp;query=Hyattsville%20MD" target="_blank" rel="noopener">Google Map</a> · <a href="https://www.census.gov/quickfacts/hyattsvillecitymaryland" target="_blank" rel="noopener">Census QuickFacts</a></td>
+            </tr>
+            <tr>
+              <td>Rockville</td>
+              <td data-label="State / type">Maryland city</td>
+              <td data-label="2020 population">67,117</td>
+              <td data-label="Map and data"><a href="https://www.google.com/maps/search/?api=1&amp;query=Rockville%20MD" target="_blank" rel="noopener">Google Map</a> · <a href="https://www.census.gov/quickfacts/rockvillecitymaryland" target="_blank" rel="noopener">Census QuickFacts</a></td>
+            </tr>
+            <tr>
+              <td>Falls Church</td>
+              <td data-label="State / type">Virginia independent city</td>
+              <td data-label="2020 population">14,658</td>
+              <td data-label="Map and data"><a href="https://www.google.com/maps/search/?api=1&amp;query=Falls%20Church%20VA" target="_blank" rel="noopener">Google Map</a> · <a href="https://www.census.gov/quickfacts/fallschurchcityvirginia" target="_blank" rel="noopener">Census QuickFacts</a></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <section id="sources" class="wrap">
+      <div class="section-head reveal">
+        <p class="eyebrow">09 — Bibliography</p>
+        <h2>Research Sources</h2>
+        <p class="lead">The page was assembled from web research, prioritizing official government, museum, and archive sources, with Wikimedia Commons for public-domain or freely licensed visual material.</p>
+      </div>
+
+      <div class="source-box reveal">
+        <h3>Source Links</h3>
+        <ul class="source-list">
+          <li><a href="https://www.archives.gov/founding-docs/declaration" target="_blank" rel="noopener">National Archives — Declaration of Independence</a></li>
+          <li><a href="https://www.archives.gov/founding-docs/constitution" target="_blank" rel="noopener">National Archives — Constitution</a></li>
+          <li><a href="https://www.archives.gov/founding-docs/bill-of-rights" target="_blank" rel="noopener">National Archives — Bill of Rights</a></li>
+          <li><a href="https://www.loc.gov/rr/program/bib/ourdocs/Residence.html" target="_blank" rel="noopener">Library of Congress — Residence Act</a></li>
+          <li><a href="https://www.whitehousehistory.org/questions/who-built-the-white-house" target="_blank" rel="noopener">White House Historical Association — Who Built the White House?</a></li>
+          <li><a href="https://www.aoc.gov/explore-capitol-campus/buildings-grounds/capitol-building" target="_blank" rel="noopener">Architect of the Capitol — U.S. Capitol Building</a></li>
+          <li><a href="https://home.treasury.gov/about/history/the-treasury-building" target="_blank" rel="noopener">U.S. Treasury — Treasury Building</a></li>
+          <li><a href="https://www.census.gov/quickfacts/fact/table/DC/LND110210" target="_blank" rel="noopener">Census QuickFacts — District of Columbia</a></li>
+          <li><a href="https://www.nps.gov/wamo/index.htm" target="_blank" rel="noopener">National Park Service — Washington Monument</a></li>
+          <li><a href="https://www.nps.gov/linc/index.htm" target="_blank" rel="noopener">National Park Service — Lincoln Memorial</a></li>
+          <li><a href="https://www.nps.gov/vive/index.htm" target="_blank" rel="noopener">National Park Service — Vietnam Veterans Memorial</a></li>
+          <li><a href="https://www.nps.gov/subjects/cherryblossom/history-of-the-cherry-trees.htm" target="_blank" rel="noopener">National Park Service — Cherry Tree History</a></li>
+          <li><a href="https://www.mwaa.com/about/reagan-air-traffic-statistics" target="_blank" rel="noopener">MWAA — Reagan National Traffic Statistics</a></li>
+          <li><a href="https://www.mwaa.com/about/dulles-air-traffic-statistics" target="_blank" rel="noopener">MWAA — Dulles Traffic Statistics</a></li>
+          <li><a href="https://www.supremecourt.gov/about/courtbuilding.aspx" target="_blank" rel="noopener">Supreme Court — Court Building</a></li>
+          <li><a href="https://www.si.edu/museums/smithsonian-institution-building" target="_blank" rel="noopener">Smithsonian — Smithsonian Institution Building</a></li>
+          <li><a href="https://commons.wikimedia.org/wiki/File:National_mall_night.jpg" target="_blank" rel="noopener">Wikimedia Commons — National Mall at night</a></li>
+          <li><a href="https://commons.wikimedia.org/wiki/File:United_States_Capitol_-_west_front_tilt_correct.jpg" target="_blank" rel="noopener">Wikimedia Commons — U.S. Capitol west front</a></li>
+          <li><a href="https://commons.wikimedia.org/wiki/File:Treasury_Department_rear_view.JPG" target="_blank" rel="noopener">Wikimedia Commons — Treasury Building photo</a></li>
+        </ul>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="wrap">
+      <span>Washington, D.C. — Capital City History</span>
+      <a href="#origin">Back to top ↑</a>
+    </div>
+  </footer>
+
+  <script>
+    (function () {
+      "use strict";
+
+      /* Scroll-reveal: fade sections in as they enter the viewport. */
+      var reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+      var revealEls = document.querySelectorAll(".reveal");
+
+      if (reduceMotion || !("IntersectionObserver" in window)) {
+        revealEls.forEach(function (el) { el.classList.add("in"); });
+      } else {
+        var revealObserver = new IntersectionObserver(function (entries) {
+          entries.forEach(function (entry) {
+            if (entry.isIntersecting) {
+              entry.target.classList.add("in");
+              revealObserver.unobserve(entry.target);
+            }
+          });
+        }, { rootMargin: "0px 0px -8% 0px", threshold: 0.08 });
+        revealEls.forEach(function (el) { revealObserver.observe(el); });
+      }
+
+      /* Scroll-spy: highlight the nav pill for the section in view
+         and keep it scrolled into view inside the pill bar. */
+      var navLinks = Array.prototype.slice.call(document.querySelectorAll(".nav-inner a"));
+      var sections = navLinks
+        .map(function (link) { return document.querySelector(link.getAttribute("href")); })
+        .filter(Boolean);
+
+      function setActive(id) {
+        navLinks.forEach(function (link) {
+          var active = link.getAttribute("href") === "#" + id;
+          link.classList.toggle("active", active);
+          if (active && link.scrollIntoView) {
+            link.scrollIntoView({ block: "nearest", inline: "center", behavior: reduceMotion ? "auto" : "smooth" });
+          }
+        });
+      }
+
+      if ("IntersectionObserver" in window) {
+        var current = null;
+        var spyObserver = new IntersectionObserver(function (entries) {
+          entries.forEach(function (entry) {
+            if (entry.isIntersecting) {
+              current = entry.target.id;
+              setActive(current);
+            }
+          });
+        }, { rootMargin: "-25% 0px -65% 0px" });
+        sections.forEach(function (sec) { spyObserver.observe(sec); });
+      }
+    })();
+  </script>
+</body>
+</html>
