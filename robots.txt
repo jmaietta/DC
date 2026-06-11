@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://kensingtondc.netlify.app/sitemap.xml
